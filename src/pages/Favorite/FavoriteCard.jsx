@@ -1,31 +1,7 @@
-import swal from "sweetalert";
 
 
-const PhoneCard = ({phone}) => {
+const FavoriteCard = ({phone}) => {
     const {id, image, phone_name, brand_name, price } = phone || {};
-
-    const handleAddToFavorites = () =>{
-        console.log("insider")
-      const addedFavoriteArrays = [];
-  
-      const favoriteItems = JSON.parse(localStorage.getItem('Data'))
-  
-      if(!favoriteItems){
-          addedFavoriteArrays.push(phone);
-          localStorage.setItem('Data',JSON.stringify(addedFavoriteArrays));
-          swal("Good job!", "Product Added Successfully", "success");
-        }else{
-            const isExist = favoriteItems.find(item => item.id ===id)
-            if(!isExist){
-
-                addedFavoriteArrays.push(...favoriteItems,phone)
-                localStorage.setItem('Data',JSON.stringify(addedFavoriteArrays));
-                swal("Good job!", "Product Added Successfully", "success");
-            }else{
-                swal("Wait", "Product is already Added", "error");
-            }
-      }
-    } 
     return (
         <div>
             <div className="border border-8 border-red-200">
@@ -45,11 +21,11 @@ const PhoneCard = ({phone}) => {
             </p>
             <a className="inline-block">
               <button
-                onClick={handleAddToFavorites}
+                
                 className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button"
               >
-                Add To Favorites
+                More Details
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -74,4 +50,4 @@ const PhoneCard = ({phone}) => {
     );
 };
 
-export default PhoneCard;
+export default FavoriteCard;

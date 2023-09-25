@@ -7,7 +7,9 @@ const MainLayout = () => {
     return (
         <div className="max-w-[1440px] mx-auto flex flex-col">
             <div className="flex-grow">
+            <div className="mb-10">
             <Navbar></Navbar>
+            </div>
             <Outlet></Outlet>
             </div>
             <div>
